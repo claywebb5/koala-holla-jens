@@ -2,8 +2,7 @@ const express = require('express');
 const koalaRouter = express.Router();
 
 // DB CONNECTION
-<<<<<<< HEAD
-=======
+
 const pg = require('pg');
 const Pool = pg.Pool;
 
@@ -22,7 +21,6 @@ pool.on('Connect', () => {
 pool.on('error', (error) => {
     console.log('Error with postgres pool', error); 
 });
->>>>>>> master
 
 // GET
 
