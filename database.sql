@@ -8,7 +8,7 @@ CREATE TABLE "koalas" (
 );
 
 INSERT INTO "koalas"
-    ("name", "age", "gender", "readyForTransferIn", "notes")
+    ("name", "age", "gender", "readyForTransferIn", "notes");
 VALUES
     ('Scotty', 4, 'M', 'true', 'Born in Guatemala'),
     ('Jean', 5, 'F', 'true', 'Allergic to lots of lava'),
