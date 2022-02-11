@@ -25,10 +25,6 @@ function getKoalas(){
     console.log('Unable to get Koalas', err);
     
   })
-  // ajax call to server to get koalas
-  
-} // end getKoalas
-
 
 
 function saveKoala( newKoala ){
@@ -46,7 +42,7 @@ function addKoala() {
   }
   $.ajax({
     method: 'POST',
-    url: 'KOALAS',
+    url: '/koalas',
     data: koalaToSend
   }).then(response => {
     console.log('Our Koala Was Added', response);
@@ -54,5 +50,7 @@ function addKoala() {
   }).catch(error => {
     console.log('Unable to add koala', error);
     alert('Problem adding Koala')
-  })
+    })
+  }
 }
+
