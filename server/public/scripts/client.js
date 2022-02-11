@@ -10,7 +10,7 @@ $( document ).ready( function(){
 }); // end doc ready
 
 function setupClickListeners() {
-  $( '#addButton' ).on( 'click', addKoala)
+  $('#addButton').on('click', addKoala);
     console.log( 'in addButton on click' );
 }
 
@@ -28,22 +28,22 @@ function getKoalas(){
   })
 
 
-function saveKoala( newKoala ){
-  console.log( 'in saveKoala', newKoala );
-  // ajax call to server to get koalas
-}
+// function saveKoala( newKoala ){
+//   console.log( 'in saveKoala', newKoala );
+//   // ajax call to server to get koalas
+// }
 
 
-function renderData(data) {
+function renderData(koalas) {
   console.log('in renderData');
   for (let koala of koalas){
     $('#viewKoalas').append(`
-    <tr data-id=${koala[i].id}>
-        <td>${koala[i].name}</td>
-        <td>${koala[i].age}</td>
-        <td>${koala[i].gender}</td>
-        <td>${koala[i].readyForTransferIn}</td>
-        <td>${koala[i].notes}</td>
+    <tr data-id=${koala.id}>
+        <td>${koala.name}</td>
+        <td>${koala.age}</td>
+        <td>${koala.gender}</td>
+        <td>${koala.readyForTransferIn}</td>
+        <td>${koala.notes}</td>
     </tr>
     
     `)
@@ -57,7 +57,7 @@ function addKoala() {
     gender: $('#genderIn').val(),
     readyForTransfer: $('#readyForTransferIn').val(),
     notes: $('#notesIn').val()
-  }
+  };
   $.ajax({
     method: 'POST',
     url: '/koalas',
