@@ -44,4 +44,15 @@ function addKoala() {
     readyForTransfer: $('#readyForTransferIn').val(),
     notes: $('#notesIn').val()
   }
-}console.log('koalas in', koalaToSend);
+  $.ajax({
+    method: 'POST',
+    url: 'KOALAS',
+    data: koalaToSend
+  }).then(response => {
+    console.log('Our Koala Was Added', response);
+    getKoalas()
+  }).catch(error => {
+    console.log('Unable to add koala', error);
+    alert('Problem adding Koala')
+  })
+}
