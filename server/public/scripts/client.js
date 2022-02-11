@@ -36,6 +36,7 @@ function getKoalas(){
 
 function renderData(koalas) {
   console.log('in renderData');
+  $('#viewKoalas').empty();
   for (let koala of koalas){
     $('#viewKoalas').append(`
     <tr data-status=${koala.readyForTransferIn} data-id=${koala.id}>
