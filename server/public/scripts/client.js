@@ -38,7 +38,7 @@ function renderData(koalas) {
   console.log('in renderData');
   for (let koala of koalas){
     $('#viewKoalas').append(`
-    <tr data-id=${koala.id}>
+    <tr data-status=${koala.readyForTransferIn} data-id=${koala.id}>
         <td>${koala.name}</td>
         <td>${koala.age}</td>
         <td>${koala.gender}</td>
