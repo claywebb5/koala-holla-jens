@@ -79,7 +79,7 @@ function updateStatus(){
     method:'PUT',
     url: `/kolas/${id}`,
   }).then(function (response) {
-    refreshBooks();
+    getKoalas();
   }).catch(function (err) {
     console.log(err);   
   })  
