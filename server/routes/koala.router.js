@@ -1,4 +1,4 @@
-const { Router } = require('express');
+const router = require('express');
 const express = require('express');
 const koalaRouter = express.Router();
 
@@ -24,7 +24,7 @@ pool.on('error', (error) => {
 });
 
 // GET
-router.get('/', (req, res) => {
+koalaRouter.get('/', (req, res) => {
     let queryText = 'SELECT * FROM "koalas" ORDER BY "age";';
     pool.query(queryText)
         .then((result) => {
@@ -33,7 +33,7 @@ router.get('/', (req, res) => {
             console.log('Error making query:', queryText, err);
             res.sendStatus(500);
         });
-});
+})
 
 // POST
 
