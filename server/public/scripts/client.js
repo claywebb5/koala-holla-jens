@@ -44,6 +44,7 @@ function renderData(koalas) {
         <td>${koala.gender}</td>
         <td>${koala.readyForTransferIn}</td>
         <td>${koala.notes}</td>
+        <td><button id="btn-ready">Ready to Transfer</button></td>
     </tr>
     
     `)
