@@ -12,7 +12,7 @@ $( document ).ready( function(){
 function setupClickListeners() {
   $('#addButton').on('click', addKoala);
     console.log( 'in addButton on click' );
-  $(#viewKoalas).on('click', '#btn-ready', updateStatus);
+  $('#viewKoalas').on('click', '#btn-ready', updateStatus);
 }
 
 function getKoalas(){
@@ -37,14 +37,16 @@ function getKoalas(){
 
 function renderData(koalas) {
   console.log('in renderData');
+  $('#viewKoalas').empty();
   for (let koala of koalas){
     $('#viewKoalas').append(`
-    <tr data-id=${koala.id}>
+    <tr data-status=${koala.readyForTransferIn} data-id=${koala.id}>
         <td>${koala.name}</td>
         <td>${koala.age}</td>
         <td>${koala.gender}</td>
         <td>${koala.readyForTransferIn}</td>
         <td>${koala.notes}</td>
+        <td><button id="btn-ready">Ready to Transfer</button></td>
     </tr>
     
     `)
