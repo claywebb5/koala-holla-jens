@@ -20,7 +20,8 @@ function getKoalas(){
     url: '/koalas'
   }).then(function(response){
     console.log('Got a response', response);
-     renderKoala(response);
+    //Call a function here
+     renderData(response);
   }).catch(function(err) {
     console.log('Unable to get Koalas', err);
     
@@ -30,6 +31,23 @@ function getKoalas(){
 function saveKoala( newKoala ){
   console.log( 'in saveKoala', newKoala );
   // ajax call to server to get koalas
+}
+
+
+function renderData(data) {
+  console.log('in renderData');
+  for (let koala of koalas){
+    $('#viewKoalas').append(`
+    <tr data-id=${koala[i].id}>
+        <td>${koala[i].name}</td>
+        <td>${koala[i].age}</td>
+        <td>${koala[i].gender}</td>
+        <td>${koala[i].readyForTransferIn}</td>
+        <td>${koala[i].notes}</td>
+    </tr>
+    
+    `)
+  }
 }
 
 function addKoala() {
@@ -53,4 +71,5 @@ function addKoala() {
     })
   }
 }
+
 
