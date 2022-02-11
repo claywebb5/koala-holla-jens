@@ -1,4 +1,4 @@
-const router = require('express');
+const router  = require('express');
 const express = require('express');
 const koalaRouter = express.Router();
 
@@ -6,7 +6,6 @@ const koalaRouter = express.Router();
 
 const pg = require('pg');
 const Pool = pg.Pool;
-
 const pool = new Pool({
     database: 'koalas',
     host: 'localhost',

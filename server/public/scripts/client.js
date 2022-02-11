@@ -26,7 +26,7 @@ function getKoalas(){
     console.log('Unable to get Koalas', err);
     
   })
-
+}
 
 // function saveKoala( newKoala ){
 //   console.log( 'in saveKoala', newKoala );
@@ -70,6 +70,6 @@ function addKoala() {
     alert('Problem adding Koala')
     })
   }
-}
+
 
 
