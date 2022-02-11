@@ -26,7 +26,7 @@ function getKoalas(){
     console.log('Unable to get Koalas', err);
     
   })
-
+}
 
 // function saveKoala( newKoala ){
 //   console.log( 'in saveKoala', newKoala );
@@ -57,7 +57,7 @@ function addKoala() {
     gender: $('#genderIn').val(),
     readyForTransfer: $('#readyForTransferIn').val(),
     notes: $('#notesIn').val()
-  };
+  }
   $.ajax({
     method: 'POST',
     url: '/koalas',
@@ -68,8 +68,5 @@ function addKoala() {
   }).catch(error => {
     console.log('Unable to add koala', error);
     alert('Problem adding Koala')
-    })
-  }
+  })
 }
-
-
