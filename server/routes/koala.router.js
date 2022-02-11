@@ -1,3 +1,4 @@
+const { Router } = require('express');
 const express = require('express');
 const koalaRouter = express.Router();
 
@@ -26,6 +27,22 @@ pool.on('error', (error) => {
 
 
 // POST
+koalaRouter.post('/', (req, res) => {
+    const newKoala = req.body;
+    console.log('newKoala is', req.body);
+    const queryText = `
+    INSERT INTO "koalas" ("name", "age", "gender", "readyForTransferIn", "notes")
+    VALUES ($1, $2, $3, $4, $5);
+    `;
+    pool.query(queryText, [newKoala.name, newKoala.age, newKoala.gender, newKoala.readyForTransferIn, newKoala.notes])
+    .then((result) => {
+        res.sendStatus(201);     
+    }).catch((err) => {
+        console.log('Error querying', queryText, err);
+        res.sendStatus(500);
+    })
+
+});
 
 
 // PUT
