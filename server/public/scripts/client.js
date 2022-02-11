@@ -12,6 +12,7 @@ $( document ).ready( function(){
 function setupClickListeners() {
   $('#addButton').on('click', addKoala);
     console.log( 'in addButton on click' );
+  $(#viewKoalas).on('click', '#btn-ready', updateStatus);
 }
 
 function getKoalas(){
@@ -71,5 +72,16 @@ function addKoala() {
     })
   }
 
-
+function updateStatus(){
+  console.log('Clicked update button!');
+  let id = $(this).closest('tr').data().id;
+  $.ajax({
+    method:'PUT',
+    url: `/kolas/${id}`,
+  }).then(function (response) {
+    refreshBooks();
+  }).catch(function (err) {
+    console.log(err);   
+  })  
+}
 
