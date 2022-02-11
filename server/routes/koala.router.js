@@ -54,7 +54,20 @@ koalaRouter.post('/', (req, res) => {
 
 
 // PUT
-
+koalaRouter.put('/:id', (req, res) => {
+    let koalaId = req.params.id;
+    const queryText = `
+    UPDATE "koalas" 
+    SET "readyForTransferIn" = TRUE
+    WHERE "id" = $1;
+    `;
+    pool.query(queryText, [koalaId])
+    .then((result => {
+        res.sendStatus(201);
+    })).catch(err => {
+        res.sendStatus(500);
+    })
+})
 
 // DELETE
 

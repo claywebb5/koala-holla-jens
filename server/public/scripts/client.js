@@ -35,6 +35,7 @@ function getKoalas(){
 
 
 function renderData(koalas) {
+  $('$viewKoalas').empty();
   console.log('in renderData');
   $('#viewKoalas').empty();
   for (let koala of koalas){
