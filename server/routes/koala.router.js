@@ -23,7 +23,16 @@ pool.on('error', (error) => {
 });
 
 // GET
-
+koalaRouter.get('/', (req, res) => {
+    let queryText = 'SELECT * FROM "koalas" ORDER BY "age";';
+    pool.query(queryText)
+        .then((result) => {
+            res.send(result.rows);
+        }).catch((err) => {
+            console.log('Error making query:', queryText, err);
+            res.sendStatus(500);
+        });
+})
 
 // POST
 koalaRouter.post('/', (req, res) => {
