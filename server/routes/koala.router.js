@@ -32,7 +32,7 @@ koalaRouter.post('/', (req, res) => {
     console.log('newKoala is', req.body);
     const queryText = `
     INSERT INTO "koalas" ("name", "age", "gender", "readyForTransferIn", "notes")
-    VALUES ($1, $2, $3, $4);
+    VALUES ($1, $2, $3, $4, $5);
     `;
     pool.query(queryText, [newKoala.name, newKoala.age, newKoala.gender, newKoala.readyForTransferIn, newKoala.notes])
     .then((result) => {
