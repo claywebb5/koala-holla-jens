@@ -12,6 +12,7 @@ $( document ).ready( function(){
 function setupClickListeners() {
   $('#addButton').on('click', addKoala);
     console.log( 'in addButton on click' );
+  $(#viewKoalas).on('click', '#btn-ready', updateStatus);
 }
 
 function getKoalas(){
@@ -35,17 +36,15 @@ function getKoalas(){
 
 
 function renderData(koalas) {
-  $('#viewKoalas').empty();
   console.log('in renderData');
   for (let koala of koalas){
     $('#viewKoalas').append(`
-    <tr data-status=${koala.readyForTransferIn} data-id=${koala.id}>
+    <tr data-id=${koala.id}>
         <td>${koala.name}</td>
         <td>${koala.age}</td>
         <td>${koala.gender}</td>
         <td>${koala.readyForTransferIn}</td>
         <td>${koala.notes}</td>
-        <td><button id="btn-ready">Ready to Transfer</button></td>
     </tr>
     
     `)
@@ -59,7 +58,7 @@ function addKoala() {
     gender: $('#genderIn').val(),
     readyForTransfer: $('#readyForTransferIn').val(),
     notes: $('#notesIn').val()
-  }
+  };
   $.ajax({
     method: 'POST',
     url: '/koalas',
@@ -70,8 +69,19 @@ function addKoala() {
   }).catch(error => {
     console.log('Unable to add koala', error);
     alert('Problem adding Koala')
-  })
+    })
+  }
+
+function updateStatus(){
+  console.log('Clicked update button!');
+  let id = $(this).closest('tr').data().id;
+  $.ajax({
+    method:'PUT',
+    url: `/kolas/${id}`,
+  }).then(function (response) {
+    getKoal();
+  }).catch(function (err) {
+    console.log(err);   
+  })  
 }
-
-
 
