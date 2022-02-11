@@ -44,6 +44,7 @@ function renderData(koalas) {
         <td>${koala.gender}</td>
         <td>${koala.readyForTransferIn}</td>
         <td>${koala.notes}</td>
+        <td><button id="btn-ready">Ready to Transfer</button></td>
     </tr>
     
     `)
@@ -57,7 +58,7 @@ function addKoala() {
     gender: $('#genderIn').val(),
     readyForTransfer: $('#readyForTransferIn').val(),
     notes: $('#notesIn').val()
-  };
+  }
   $.ajax({
     method: 'POST',
     url: '/koalas',
@@ -68,8 +69,8 @@ function addKoala() {
   }).catch(error => {
     console.log('Unable to add koala', error);
     alert('Problem adding Koala')
-    })
-  }
+  })
+}
 
 
 
